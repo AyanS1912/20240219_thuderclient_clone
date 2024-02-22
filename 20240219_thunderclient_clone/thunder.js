@@ -48,8 +48,17 @@ function fetchData(){
     .then(response => {
 
         const status = document.getElementById("status-data")
-        status.innerHTML = `Status : ${response.status}`
-        status.style.color = 'green'
+        if(response.ok){
+            status.innerHTML = `Status : ${response.status} OK`
+            status.style.color = 'green'
+            status.style.fontSize ='large'
+        }
+        else{
+            status.innerHTML = `Status : ${response.status}`
+            status.style.color = 'red'
+            status.style.fontSize ='large'
+        }
+        
 
         return response.json()
     })
@@ -58,6 +67,11 @@ function fetchData(){
         // console.log(data.)
         const response_data = document.getElementById("response-data")
         response_data.innerHTML = `<p>${JSON.stringify(data.quote)}</p>`
+
+        const size_data = document.getElementById("size-data");
+        size_data.innerHTML = `Size: ${new Blob([data]).size} Byte`
+        size_data.style.color ='green'
+        size_data.style.fontSize ='large'
         
     }).catch(error => {
         console.error(error)
@@ -68,6 +82,5 @@ function fetchData(){
     const time_taken = document.getElementById("time-data")
     time_taken.innerHTML = `Time: ${time} ms`
     time_taken.style.color = 'green'
-    // console.log(Math.round(time)+"ms")
-
+    time_taken.style.fontSize ='large'
 }
