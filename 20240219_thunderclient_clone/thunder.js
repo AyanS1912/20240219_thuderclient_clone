@@ -36,7 +36,7 @@ function fetchData(){
 
     let method = document.getElementById('http-methods-data').value
     let url =  document.getElementById('URL-data').value
-    console.log(method,url)
+    // console.log(method,url)
     const start = performance.now()
     fetch(url,{
         method:method,
@@ -46,27 +46,30 @@ function fetchData(){
           }
     })
     .then(response => {
-        // console.log(response.json())
+
+        const read_data = response
+        console.log(read_data)
+
         const status = document.getElementById("status-data")
-        status.innerHTML = `Status : ${response.status}`
+        status.innerHTML = `Status : ${read_data.status}`
         status.style.color = 'green'
 
-        const response_data = document.getElementById("response-data")
-        response_data.innerHTML = `<p>${response.data}</p>`
+        
 
-        const text = response.text(); // Get response body as text
-        const responseSize = new Blob([text]).size;
-        const size_taken =  document.getElementById("size-data")
-        console.log(responseSize)
-        size_taken.innerHTML = ` Size: ${responseSize} Byte`
-        size_taken.style.color = 'green'
+        // const responseSize = new Blob([read_data.text()]).size;
+        // const size_taken =  document.getElementById("size-data")
+        // // console.log(responseSize)
+        // size_taken.innerHTML = ` Size: ${responseSize} Byte`
+        // size_taken.style.color = 'green'
 
-        console.log(response.json())
         return response.json()
     })
     .then(data =>{
-        console.log(data)
-    
+
+        // console.log(data.)
+        const response_data = document.getElementById("response-data")
+        response_data.innerHTML = `<p>${JSON.stringify(data.quote)}</p>`
+        
     }).catch(error => {
         console.error(error)
     })
