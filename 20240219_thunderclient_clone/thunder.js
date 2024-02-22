@@ -13,6 +13,7 @@ function QuerySection() {
     requestType.innerHTML = ''; 
     requestType.appendChild(keyValueDiv);
 }
+/** */
 
 function addKeyValuePair() {
     var keyValueDiv = document.querySelector('.key-value-pairs');
