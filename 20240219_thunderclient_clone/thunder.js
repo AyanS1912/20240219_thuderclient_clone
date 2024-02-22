@@ -47,20 +47,9 @@ function fetchData(){
     })
     .then(response => {
 
-        const read_data = response
-        console.log(read_data)
-
         const status = document.getElementById("status-data")
-        status.innerHTML = `Status : ${read_data.status}`
+        status.innerHTML = `Status : ${response.status}`
         status.style.color = 'green'
-
-        
-
-        // const responseSize = new Blob([read_data.text()]).size;
-        // const size_taken =  document.getElementById("size-data")
-        // // console.log(responseSize)
-        // size_taken.innerHTML = ` Size: ${responseSize} Byte`
-        // size_taken.style.color = 'green'
 
         return response.json()
     })

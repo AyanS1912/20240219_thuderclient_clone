@@ -142,3 +142,14 @@
     background-color: rgb(17, 119, 187);
     width: 25%;
 }
+
+#response-data{
+    color: rgb(103, 107, 117);
+    border : 2px solid rgb(71, 75, 84);
+    padding: 20px 20px 20px 20px ;
+    height :50%;
+    width : 90%;
+    margin : 20px 20px 10px 40px;
+    font-size: larger;
+    font-weight: bolder;
+}
