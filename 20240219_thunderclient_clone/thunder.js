@@ -31,12 +31,17 @@ function addKeyValuePair() {
 function removeKeyValuePair(button) {
     button.parentNode.remove();
 }
-
+function getParameters(){
+    let params;
+    doc
+}
 function fetchData(){
 
     let method = document.getElementById('http-methods-data').value
     let url =  document.getElementById('URL-data').value
     // console.log(method,url)
+
+    let get_params = getParameters();
     const start = performance.now()
     fetch(url,{
         method:method,
